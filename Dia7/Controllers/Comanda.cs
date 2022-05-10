@@ -10,14 +10,17 @@ namespace Dia7.Controllers
 {
     internal class Comanda
     {
+        //dos objetos privados de tipo interface
         private IMenu _menuComida;
         private IMenu _menuBebida;
-
+        //constructor de comanda recibe objeto que implemente la interfaz
         public Comanda(IMenu menucom, IMenu menubeb)
         {
             _menuComida = menucom;
             _menuBebida = menubeb;
         }
+
+        //calcula el total de la comanda, recorre las dos lista y suma los totales
         public double CalcularTotal()
         {
             double total = 0;

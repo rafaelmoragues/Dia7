@@ -10,13 +10,14 @@ namespace Dia7.Models
     class ListaComida : IMenu
     {
         List<Comida> _comida;
-        List<Comida> listaTemporal;
+        List<Comida> listaTemporal; //lista que no deberia ir, solo esta para tener unos datos para trabajar
 
         public ListaComida()
         {
-            _comida = new List<Comida>();
-            AgregarComida();
+            _comida = new List<Comida>();//instancia de la lista temporal
+            AgregarComida();// cargo la lista temporal con datos aleatorios
         }
+        //agrega un producto a la lista de bebidas
         public void AgregarProd(Producto prod)
         {
             _comida.Add((Comida)prod);
@@ -27,11 +28,13 @@ namespace Dia7.Models
         {
             throw new NotImplementedException();
         }
-
+        //devuelve la lista de bebidas
         public IEnumerable<Producto> ObtenerProd()
         {
             return _comida;
         }
+
+        //agrega bebidas random a la lista temporal
         void AgregarComida()
         {
             listaTemporal = new List<Comida>();
@@ -40,6 +43,8 @@ namespace Dia7.Models
             listaTemporal.Add(new Comida("hamburguesa", 900,3));
             listaTemporal.Add(new Comida("tortilla", 750,4));
         }
+
+        //busca y devuelve una bebida a traves del id
         public Comida BuscaComida(int id)
         {
             foreach (var comida in listaTemporal)
@@ -52,6 +57,7 @@ namespace Dia7.Models
             return null;
         }
 
+        //muestra las bebidas de la lista temporal
         public void MostrarComida()
         {
             Console.WriteLine("1: ñoquis");
